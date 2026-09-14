@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+    <div class="search">
+        <input type="text" id="cityInput" placeholder="शहराचे नाव टाका..." spellcheck="false">
+        <button id="searchBtn">शोधा</button>
+    </div>
+    <div class="weather" style="display: none;">
+        <h1 class="temp">0°C</h1>
+        <h2 class="city">शहर</h2>
+        <p class="description">हवामानाची स्थिती</p>
+        <div class="details">
+            <div class="col">
+                <p class="humidity">0%</p>
+                <p>आर्द्रता (Humidity)</p>
+            </div>
+            <div class="col">
+                <p class="wind">0 km/h</p>
+                <p>वाऱ्याचा वेग (Wind Speed)</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
