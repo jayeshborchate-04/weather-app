@@ -1,33 +1,77 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="card">
-    <div class="search">
-        <input type="text" id="cityInput" placeholder="शहराचे नाव टाका..." spellcheck="false">
-        <button id="searchBtn">शोधा</button>
-    </div>
-    <div class="weather" style="display: none;">
-        <h1 class="temp">0°C</h1>
-        <h2 class="city">शहर</h2>
-        <p class="description">हवामानाची स्थिती</p>
-        <div class="details">
-            <div class="col">
-                <p class="humidity">0%</p>
-                <p>आर्द्रता (Humidity)</p>
-            </div>
-            <div class="col">
-                <p class="wind">0 km/h</p>
-                <p>वाऱ्याचा वेग (Wind Speed)</p>
-            </div>
+<div class="card" id="card">
+
+    <!-- Top bar: language selector -->
+    <div class="topbar">
+        <div class="lang-select">
+            <label for="langSelect">🌐</label>
+            <select id="langSelect">
+                <option value="en">English</option>
+                <option value="mr">मराठी</option>
+                <option value="hi">हिंदी</option>
+            </select>
         </div>
     </div>
+
+    <!-- Search -->
+    <div class="search">
+        <input type="text" id="cityInput" placeholder="Enter city name..." spellcheck="false" autocomplete="off">
+        <button id="searchBtn" title="Search">🔍</button>
+        <button id="locBtn" title="Use my location">📍</button>
+    </div>
+
+    <div id="loader" class="loader" style="display:none;"></div>
+    <div id="error" class="error" style="display:none;"></div>
+
+    <!-- Current weather -->
+    <div class="weather" id="weather" style="display: none;">
+        <div class="icon-wrap">
+            <img id="weatherIcon" src="" alt="weather icon">
+        </div>
+        <h1 class="temp" id="temp">--°C</h1>
+        <h2 class="city" id="city">--</h2>
+        <p class="description" id="description">--</p>
+
+        <div class="details">
+            <div class="col">
+                <p class="big" id="humidity">--%</p>
+                <p class="label" data-i18n="humidity">Humidity</p>
+            </div>
+            <div class="col">
+                <p class="big" id="wind">-- km/h</p>
+                <p class="label" data-i18n="wind">Wind Speed</p>
+            </div>
+            <div class="col">
+                <p class="big" id="feels">--°C</p>
+                <p class="label" data-i18n="feels">Feels Like</p>
+            </div>
+        </div>
+
+        <div class="extra">
+            <span>🌅 <span id="sunrise">--</span></span>
+            <span>🌇 <span id="sunset">--</span></span>
+            <span>📊 <span id="pressure">--</span> hPa</span>
+        </div>
+
+        <p class="updated"><span data-i18n="updated">Last updated</span>: <span id="updated">--</span></p>
+    </div>
+
+    <!-- Forecast -->
+    <div class="forecast" id="forecast"></div>
+
+    <!-- Recent -->
+    <div class="recent" id="recent"></div>
 </div>
+
 <script src="app.js"></script>
 </body>
 </html>
